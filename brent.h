@@ -10,32 +10,8 @@
 // according to double func(const double x)
 
 // **********
-
-class MyFunc {
-	public:
-
-	double a;
-
-	MyFunc(double init)
-	{
-		a = init;
-	}
-
-	double operator() (double x)
-	{
-		return ( sinh(x)/x - (a*x*x) );
-	}
-
-	void printFunc()
-	{
-		if ( a > 0 )
-			std::cout << "Gewählte Testfunktion: f(x) = sinh(x)/x-" << a << "x^2" << std::endl << std::endl;
-		else
-			std::cout << "Gewählte Testfunktion: f(x) = sinh(x)/x+" << ((-1)*a) << "x^2" << std::endl << std::endl;
-	}
-};
-
-int brent(MyFunc& func, const double x1, const double x2, double& z, const double tol)
+template <class T>
+int brent(T& func, const double x1, const double x2, double& z, const double tol)
 {
 	// Maximum number of iterations
 	static const int ITMAX = 100;

@@ -3,15 +3,32 @@
 #include "brent.h"		// Van-Wijngaarden-Dekker-Brent-Algorithmus
 using namespace std;
 
+class MyFunc {
+ public:
+
+	double a;
+
+	 MyFunc(const double init) {
+		a = init;
+	} double operator() (const double x) {
+		return (sinh(x) / x - (a * x * x));
+	}
+
+	void printFunc() {
+		if (a > 0)
+			cout << "Gewählte Testfunktion: f(x) = sinh(x)/x-" << a << "x^2" << endl << endl;
+		else
+			cout << "Gewählte Testfunktion: f(x) = sinh(x)/x+" << ((-1) * a) << "x^2" << endl << endl;
+	}
+};
+
 int main()
 {
 	cout << "Van-Wijngaarden-Dekker-Brent-Algorithmus" << endl;
 
-	double x1, x2, x3;
+	double x1 = 6.1, x2 = 8.04481, x3;
 
-	x1 = 6.1;
-	x2 = 8.04481;
-	MyFunc testFunktion(2);
+	MyFunc testFunktion(2);	// Klassen-Definition in brent.h
 	testFunktion.printFunc();
 
 	const int steps = brent(testFunktion, x1, x2, x3, pow(10, -14));
