@@ -100,11 +100,11 @@ int main()
 
 	MyFunc testFunktion1(2);
 	testFunktion1.printFunc();
-	FindRoot(testFunktion1, startwert1, startwert2, pow(10, -14));	// Das Einklammern endet mit den Randwerten x1=6.1 und x2=8.94481 nach 5 Schritten (Iterationen). Das Bisektions-Verfahren liefert danach als Nullstelle x0=7.38441. Dieses Ergebnis ist nach 49 Schritten erreicht und liegt in Wahrheit bei f(x0)=-1.7053e-13
+	FindRoot(testFunktion1, startwert1, startwert2, 1e-14);	// Das Einklammern endet mit den Randwerten x1=6.1 und x2=8.94481 nach 5 Schritten (Iterationen). Das Bisektions-Verfahren liefert danach als Nullstelle x0=7.38441. Dieses Ergebnis ist nach 49 Schritten erreicht und liegt in Wahrheit bei f(x0)=-1.7053e-13
 
 	cout << "\n\n";
 
 	MyFunc testFunktion2(-1);
 	testFunktion2.printFunc();
-	FindRoot(testFunktion2, startwert1, startwert2, pow(10, -14));	// Für den gewählten Parameter a=-1 beendet sich der Einklammer-Algorithmus nach der Maximalzahl der vorgegebenen Iterationen und findet kein geeignetes Intervall. Damit lässt sich vermuten, dass die Startwerte schlecht gewählt wurden oder die Funktion keine Nullstellen auf der reellen Achse hat. (Sie hat wirklich nur zwei komplexe Nullstellen.)
+	FindRoot(testFunktion2, startwert1, startwert2, 1e-14);	// Für den gewählten Parameter a=-1 beendet sich der Einklammer-Algorithmus nach der Maximalzahl der vorgegebenen Iterationen und findet kein geeignetes Intervall. Damit lässt sich vermuten, dass die Startwerte schlecht gewählt wurden oder die Funktion keine Nullstellen auf der reellen Achse hat. (Sie hat wirklich nur zwei komplexe Nullstellen.)
 }

@@ -31,7 +31,7 @@ int main()
 	MyFunc testFunktion(2);	// Klassen-Definition in brent.h
 	testFunktion.printFunc();
 
-	const int steps = brent(testFunktion, x1, x2, x3, pow(10, -14));
+	const int steps = brent(testFunktion, x1, x2, x3, 1e-14);
 
 	cout << "Iterationen: " << steps << " Nullstelle x0=" << x3 << endl;	// Der Algorithmus benötigt lediglich 8 Iterationen (Schritte) bei den vorgegebenen Startwerten. Im Vergleich zu den 49 Iterationen vom einfachen Bisektions-Verfahren ist der Van-Wijngaarden-Dekker-Brent-Algorithmus zu bevorzugen.
 }
